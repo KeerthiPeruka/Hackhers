@@ -9,9 +9,7 @@ CORS(app)
 conn = psycopg2.connect(database="postgres",
                         user="postgres",
                         password="postgres")
-@app.route('/')
-def bad_dad():
-    return 'Nanna makes me do such annoying work at so late at night'
+
 
 @app.route('/create', methods=['POST'])
 def create():
@@ -19,17 +17,14 @@ def create():
     print("if you see this you did it")
 
 
-    firstName = request.form.get('firstName')
-    lastName = request.form.get('lastName')
     email = request.form.get('email')
     password = request.form.get('password')
-    passwordRedo = request.form.get('passwordRedo')
 
     # Insert the data into the database
     cur = conn.cursor()
     cur.execute(
-        "INSERT INTO registration (firstName, lastName, email, password, passwordRedo) VALUES (%s, %s, %s, %s, %s)",
-    (firstName, lastName, email, password, passwordRedo))
+        "INSERT INTO login (email,password) VALUES (%s, %s)",
+    (email, password))
     conn.commit()
 
     return 'added!'
@@ -40,17 +35,14 @@ def createJson():
     print("if you see this you did it")
 
 
-    firstName = request.json['firstName']
-    lastName = request.json['lastName']
     email = request.json['email']
     password = request.json['password']
-    passwordRedo = request.json['passwordRedo']
 
     # Insert the data into the database
     cur = conn.cursor()
     cur.execute(
-        "INSERT INTO registration (firstName, lastName, email, password, passwordRedo) VALUES (%s, %s, %s, %s, %s)",
-    (firstName, lastName, email, password, passwordRedo))
+        "INSERT INTO login (email, password) VALUES (%s, %s)",
+    (email, password))
     conn.commit(),
 
     return 'added!'
