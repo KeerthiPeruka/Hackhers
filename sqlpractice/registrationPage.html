@@ -11,21 +11,29 @@
         <div class = "title">Registration</div>
         
     <div class = "user-details">
-    <form id="RegistrationForm">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required><br>
+    <form id="RegistrationForm" action = "#">
+        <div class = "input-box">
+            <label for="firstName" class = "details">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+        </div>
+        <div class = "input-box">
+            <label for="lastName" class = "details">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+        </div>
+        <div class = "input-box">
+            <label for="email" class="details">Email:</label>
+            <input type="text" id="email" name="email" required><br>
+        </div>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br>
+        <div class = input-box>
+            <label for="password" class="details">Password:</label>
+            <input type="text" id="password" name="password" required><br>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required><br>
-
-        <label for="password">Password:</label>
-        <input type="text" id="password" name="password" required><br>
-
-        <label for="passwordRedo">Confirm Password:</label>
-        <input type="text" id="passwordRedo" name="passwordRedo" required><br>
+        <div class = "input-box">
+            <label for="passwordRedo" class="details">Confirm Password:</label>
+            <input type="text" id="passwordRedo" name="passwordRedo" required><br>
+        </div>
 
         <button type="button" onclick="postData()">Register</button>
     </div>
