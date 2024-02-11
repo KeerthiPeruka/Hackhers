@@ -107,6 +107,7 @@ form button{
     margin : 70px 0;
     justify-content: center;
     align-items : center;
+    font-size:15px;
 }
 
 form button input{
