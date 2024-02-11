@@ -9,9 +9,7 @@ CORS(app)
 conn = psycopg2.connect(database="postgres",
                         user="postgres",
                         password="postgres")
-@app.route('/')
-def bad_dad():
-    return 'Nanna makes me do such annoying work at so late at night'
+
 
 @app.route('/journal', methods=['POST'])
 def journal():
