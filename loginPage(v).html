@@ -12,12 +12,20 @@
         <input type="text" id="email" name="email" required><br>
 
         <label for="password">Password:</label>
-        <input type="text" id="password" name="password" required><br>
+        <input type="password" id="password" name="password" required><br>
 
         <button type="button" onclick="postData()">Submit</button>
+
+        <p>
+            Don't have an account? <a href = "registrationPage(v).html"> Register Here</a>
+        </p>
+
+
+
     </form>
 
     <script>
+
         function postData() {
             const apiUrl = 'http://127.0.0.1:5000/create-json';
             const formData = {
@@ -37,6 +45,7 @@
             .then(data => {
                 console.log('Success:', data);
                 alert('Successfully added!');
+                window.location.href = "journalEntryPage(v).html";
             })
             .catch(error => {
                 console.error('Error:', error);

@@ -24,6 +24,11 @@
         <input type="text" id="passwordRedo" name="passwordRedo" required><br>
 
         <button type="button" onclick="postData()">Submit</button>
+
+        <p>
+            Already have an account? <a href = "loginPage(v).html"> Register Here</a>
+        </p>
+
     </form>
 
     <script>
@@ -48,6 +53,7 @@
             .then(data => {
                 console.log('Success:', data);
                 alert('Successfully added!');
+                window.location.href = "loginPage(v).html";
             })
             .catch(error => {
                 console.error('Error:', error);
