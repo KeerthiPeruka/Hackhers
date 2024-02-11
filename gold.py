@@ -11,7 +11,7 @@ conn = psycopg2.connect(database="postgres",
                         user="postgres",
                         password="postgres")
 
-
+#i hope this project works
 @app.route('/journal', methods=['POST'])
 def journal():
     # Get the username and email from the request body
