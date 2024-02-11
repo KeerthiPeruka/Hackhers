@@ -4,24 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work Day Entry</title>
+    <link rel = "stylesheet" href = "goldPage.css"><br>
 </head>
+
 <body>
+    <div class = "container">
+    <div class = "title">WORK DAY</div><br>
 
-    <form id="Work Day Entry">
+    <div class = "entry-details">
+        <form id="Work Day Entry">
 
-        <label for="rating">How do you rate your work day on a scale of 1(worst) to 10 (best):</label>
-        <input type="text" id="rating" name="rating" required><br>
+            <div class = "rating">
+                <label for = "number"> How do you rate your work day on a scale of 1(worst) to 10 (best): </label>
+                <select id = "number" name = "number">
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                    <option value = "4">4</option>
+                    <option value = "5">5</option>
+                    <option value = "6">6</option>
+                    <option value = "7">7</option>
+                    <option value = "8">8</option>
+                    <option value = "9">9</option>
+                    <option value = "10">10</option>
+                </select>
+            </div>
 
-        <label for="comments">Would you like to add any comments about your work day:</label>
-        <textarea id="comments" rows="4" cols="50" ></textarea> <br>
+            <br>
 
+            <div class = "comments">
+                <label for="comments">Would you like to add any comments about your work day:</label><br>
+            </div>
+            <div class = "comments-text">
+                <textarea id="comments" rows="7" cols="55" ></textarea> <br>
+            </div>
 
-        <button type="button" onclick="postData()">Submit</button> <br>
+            <br>
 
-        <label for="aiResponse">Advice:</label>
-        <textarea id="aiResponse" rows="4" cols="50" readonly></textarea> <br>
+            <div class = "button">
+                <button type="button" onclick="postData()">Submit</button> 
+            </div>
 
-    </form>
+            <br>
+
+            <div class = "aiResponse">
+                <label for="aiResponse">Advice:</label><br>
+            </div>
+
+            <div class = "aiResponse-text">
+                <textarea id="aiResponse" rows="7" cols="55" readonly></textarea> <br>
+            </div>
+
+        </form>
+    </div>
+    </div>
 
     <script>
         function postData() {
