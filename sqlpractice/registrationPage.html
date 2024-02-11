@@ -35,29 +35,12 @@
             <input type="text" id="passwordRedo" name="passwordRedo" required><br>
         </div>
 
-<<<<<<< HEAD:sqlpractice/registrationPage.html
-        <button type="button" onclick="postData()">Register</button>
+        <button type="button" class = "button" onclick="postData()">Register</button>
     </div>
     </div>
-=======
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required><br>
-
-        <label for="password">Password:</label>
-        <input type="text" id="password" name="password" required><br>
-
-        <label for="passwordRedo">Confirm Password:</label>
-        <input type="text" id="passwordRedo" name="passwordRedo" required><br>
-
-        <button type="button" onclick="postData()">Submit</button>
-
-        <p>
-            Already have an account? <a href = "loginPage(v).html"> Register Here</a>
-        </p>
-
->>>>>>> 5a812953184e7af39707c3c31818ded7462cd11c:registrationPage(v).html
     </form>
-    </div>
+    <!----->
+    
 
     <script>
         function postData() {
@@ -81,7 +64,6 @@
             .then(data => {
                 console.log('Success:', data);
                 alert('Successfully added!');
-                window.location.href = "loginPage(v).html";
             })
             .catch(error => {
                 console.error('Error:', error);
