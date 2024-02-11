@@ -17,15 +17,14 @@ def journal():
     print("if you see this you did it")
 
 
-    date = request.form.get('date')
     rating = request.form.get('rating')
     comments = request.form.get('comments')
 
     # Insert the data into the database
     cur = conn.cursor()
     cur.execute(
-        "INSERT INTO journalEntries (date,rating,comments) VALUES (%s, %s, %s)",
-    (date,rating,comments))
+        "INSERT INTO journalEntries (rating,comments) VALUES (%s, %s)",
+    (rating,comments))
     conn.commit()
 
     return 'added!'
@@ -36,15 +35,15 @@ def journalJson():
     print("if you see this you did it")
 
 
-    date = request.json['date']
+
     rating = request.json['rating']
     comments = request.json['comments']
 
     # Insert the data into the database
     cur = conn.cursor()
     cur.execute(
-        "INSERT INTO journalEntries (date,rating,comments) VALUES (%s, %s, %s)",
-    (date, rating, comments))
+        "INSERT INTO journalEntries (rating,comments) VALUES (%s, %s)",
+    (rating, comments))
     conn.commit(),
 
     return 'added!'
