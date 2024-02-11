@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "./registrationPage.css">
+    <title>Registration</title>
+</head>
+<body>
+    <div class = "container">
+        <div class = "title">Registration</div>
+        
+    <div class = "user-details">
+    <form id="RegistrationForm" action = "#">
+        <div class = "input-box">
+            <label for="firstName" class = "details">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+        </div>
+        <div class = "input-box">
+            <label for="lastName" class = "details">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+        </div>
+        <div class = "input-box">
+            <label for="email" class="details">Email:</label>
+            <input type="text" id="email" name="email" required><br>
+        </div>
+
+        <div class = input-box>
+            <label for="password" class="details">Password:</label>
+            <input type="text" id="password" name="password" required><br>
+        </div>
+
+        <div class = "input-box">
+            <label for="passwordRedo" class="details">Confirm Password:</label>
+            <input type="text" id="passwordRedo" name="passwordRedo" required><br>
+        </div>
+
+        <button type="button" onclick="postData()">Register</button>
+
+        <p>
+            Already have an account? <a href = "loginPage(v).html"> Login Here!</a>
+        </p>
+
+    </div>
+    </div>
+    </form>
+    <!----->
+    
+
+    <script>
+        function postData() {
+            const apiUrl = 'http://127.0.0.1:5000/create-json';
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                passwordRedo: document.getElementById('passwordRedo').value
+            };
+
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Successfully added!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+</body>
+</html>

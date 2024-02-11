@@ -1,27 +1,44 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title> Login </title>
+    
+
+    <link rel = "stylesheet" href = "loginPage.css"><br>
+    
+    
 </head>
 <body>
+    <div class = "container">
+        <div class = "title">LOGIN</div>
+        <br>
 
-    <form id="Login">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required><br>
+    <div class = "LoginDetails">
+        <form id="Login" action = "#">
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
+        <div class =  "input-box">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br>
+        </div>
+
+        <div class = "input-box">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+        </div>
+
 
         <button type="button" onclick="postData()">Submit</button>
 
         <p>
-            Don't have an account? <a href = "registrationPage(v).html"> Register Here</a>
+            Don't have an account? <a href = "registrationPage.html"> Register Here</a>
         </p>
 
-
-
+    </div>
+    </div>
     </form>
 
     <script>
