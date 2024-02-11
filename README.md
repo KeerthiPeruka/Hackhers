@@ -1,0 +1,1 @@
+To test out our code, either run the Home.html file, or run the goldPage.html file. The Home file will lead you to our landing page in which you can register or login, as well as our main project. The goldPage will lead you to the main AI service. 
