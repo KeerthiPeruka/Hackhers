@@ -20,13 +20,13 @@ body{
     background:white;
     padding:25px 30px;
     border-radius:5px;
+    margin:30px;
 }
 
 .container .title{
     font-size:25px;
     font-weight:500;
     position: relative;
-    margin-bottom: 10px;;
 }
 
 .container .title::before{
@@ -80,8 +80,13 @@ form .user-details .input-box{
 }
 
 form button{
-    height:45px;
-    margin: 45px 0;
+
+    height : 50px;
+    width : 100px;
+    margin : 70px 0;
+    justify-content: center;
+    align-items : center;
+    font-size:15px;
 }
 
 form button input{
