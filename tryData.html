@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Day Entry</title>
+    <title>Response</title>
 </head>
 <body>
 
-    <form id="Work Day Entry">
+    <form id="Response">
 
         <label for="rating">Rating:</label>
         <input type="text" id="rating" name="rating" required><br>
@@ -20,7 +20,7 @@
 
     <script>
         function postData() {
-            const apiUrl = 'http://127.0.0.1:5000/journal-json';
+            const apiUrl = 'http://127.0.0.1:5000/data-json';
             const formData = {
                 rating: document.getElementById('rating').value,
                 comments: document.getElementById('comments').value
