@@ -22,7 +22,7 @@
             // Get the rating from the textarea
             const rating = document.getElementById("rating").value;
 
-            const apiEndpoint = 'http://127.0.0.1:5000'; // added 'http://'
+            const apiEndpoint = 'http://127.0.0.1:5000/data'; // added 'http://'
 
             // Make a POST request to the API with the rating
             fetch(apiEndpoint, {
@@ -30,9 +30,9 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ rating: rating }), // corrected property name
+                body: JSON.stringify({ rating: rating}), // corrected property name
             })
-            .then(response => response.json())
+            .then(response => response.body)
             .then(data => {
                 // Use the API response to populate the comments textarea
                 document.getElementById("comments").value = data.comments;

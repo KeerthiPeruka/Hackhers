@@ -13,14 +13,19 @@
         <input type="text" id="rating" name="rating" required><br>
 
         <label for="comments">Would you like to add any comments about your work day:</label>
-        <input type="text" id="comments" name="comments" required><br>
+        <textarea id="comments" rows="4" cols="50" ></textarea> <br>
 
-        <button type="button" onclick="postData()">Submit</button>
+
+        <button type="button" onclick="postData()">Submit</button> <br>
+
+        <label for="aiResponse">Advice:</label>
+        <textarea id="aiResponse" rows="4" cols="50" readonly></textarea> <br>
+
     </form>
 
     <script>
         function postData() {
-            const apiUrl = 'http://127.0.0.1:5000/journal-json';
+            const apiUrl = 'http://127.0.0.1:5000/ai-json';
             const formData = {
                 rating: document.getElementById('rating').value,
                 comments: document.getElementById('comments').value
@@ -34,10 +39,10 @@
                 },
                 body: JSON.stringify(formData)
             })
-            .then(response => response.body)
+            .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
-                alert('Successfully added!');
+                document.getElementById("aiResponse").value = data.aiResponse;
+
             })
             .catch(error => {
                 console.error('Error:', error);

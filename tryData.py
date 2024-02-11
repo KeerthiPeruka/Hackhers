@@ -9,9 +9,9 @@ CORS(app)
 
 conn = psycopg2.connect(database="postgres", user="postgres", password="postgres")
 
-def index():
+'''def index():
     return render_template('tryData.html')
-
+'''
 @app.route('/data', methods=['POST'])
 def data():
     print("if you see this you did it")
@@ -19,6 +19,7 @@ def data():
     rating = request.form.get('rating')
     comments = request.form.get('comments')
 
+    print(rating, comments)
     cur = conn.cursor()
     cur.execute("SELECT * FROM journalEntries")
     result = cur.fetchall()
@@ -34,15 +35,18 @@ def dataJson():
 
     rating = request.json['rating']
     comments = request.json['comments']
-
-    cur = conn.cursor()
+    aiResponse = str(AI_Therapist(comments))
+    print(aiResponse)
+    return aiResponse
+'''
+cur = conn.cursor()
     cur.execute("SELECT rating, comments FROM journalEntries")
     result = cur.fetchall()
 
     print(AI_Therapist(''.join(map(str, result[-1]))))
     cur.close()
+'''
 
-    return 'added!'
 
 
 if __name__ == '__main__':

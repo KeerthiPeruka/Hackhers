@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_cors import CORS
 import psycopg2
 import json
+from main import AI_Therapist
 
 app = Flask(__name__)
 CORS(app)
@@ -29,8 +30,8 @@ def journal():
 
     return 'added!'
 
-@app.route('/journal-json', methods=['POST'])
-def journalJson():
+@app.route('/ai-json', methods=['POST'])
+def aiJson():
     # Get the username and email from the request body
     print("if you see this you did it")
 
@@ -39,14 +40,14 @@ def journalJson():
     rating = request.json['rating']
     comments = request.json['comments']
 
+    print(rating, comments)
     # Insert the data into the database
-    cur = conn.cursor()
-    cur.execute(
-        "INSERT INTO journalEntries (rating,comments) VALUES (%s, %s)",
-    (rating, comments))
-    conn.commit(),
+    #aiResponse = str(AI_Therapist(comments))
 
-    return {"message" : 'added!'}
+    aiResponse = str(AI_Therapist(str("RATING:" + rating +  " HISTORY:" + comments)))
+    print(aiResponse)
+
+    return {"aiResponse" : aiResponse}
 
 if __name__ == '__main__':
     app.run()
