@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Response</title>
+    <title>Work Day Entry</title>
 </head>
 <body>
 
-    <form id="Response">
+    <form id="Work Day Entry">
 
         <label for="rating">Rating:</label>
         <input type="text" id="rating" name="rating" required><br>
@@ -15,33 +15,29 @@
         <label for="comments">Comments:</label>
         <input type="text" id="comments" name="comments" required><br>
 
-        <button type="button" onclick="postData()">Submit</button>
-    </form>
-
+         <button onclick="postRating()">Submit Your Entry</button>
+      </form>
     <script>
-        function postData() {
-            const apiUrl = 'http://127.0.0.1:5000/data-json';
-            const formData = {
-                rating: document.getElementById('rating').value,
-                comments: document.getElementById('comments').value
+        function postRating() {
+            // Get the rating from the textarea
+            const rating = document.getElementById("rating").value;
 
-            };
+            const apiEndpoint = 'http://127.0.0.1:5000'; // added 'http://'
 
-            fetch(apiUrl, {
+            // Make a POST request to the API with the rating
+            fetch(apiEndpoint, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ rating: rating }), // corrected property name
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
-                alert('Successfully added!');
+                // Use the API response to populate the comments textarea
+                document.getElementById("comments").value = data.comments;
             })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+            .catch(error => console.error('Error:', error));
         }
     </script>
 
