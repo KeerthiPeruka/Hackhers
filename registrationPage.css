@@ -20,13 +20,13 @@ body{
     background:white;
     padding:25px 30px;
     border-radius:5px;
+    margin:30px;
 }
 
 .container .title{
     font-size:25px;
     font-weight:500;
     position: relative;
-    margin-bottom: 10px;;
 }
 
 .container .title::before{
