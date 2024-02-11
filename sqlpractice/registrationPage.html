@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "./registrationPage.css">
     <title>Registration</title>
 </head>
 <body>
-
+    <div class = "container">
+        <div class = "title">Registration</div>
+        
+    <div class = "user-details">
     <form id="RegistrationForm">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" required><br>
@@ -23,8 +27,11 @@
         <label for="passwordRedo">Confirm Password:</label>
         <input type="text" id="passwordRedo" name="passwordRedo" required><br>
 
-        <button type="button" onclick="postData()">Submit</button>
+        <button type="button" onclick="postData()">Register</button>
+    </div>
+    </div>
     </form>
+    </div>
 
     <script>
         function postData() {
